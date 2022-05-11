@@ -1,10 +1,20 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { chunkSplitPlugin } from "vite-plugin-chunk-split";
-import legacy from "@vitejs/plugin-legacy"
+import {
+  createStyleImportPlugin,
+  AntdResolve,
+} from 'vite-plugin-style-import'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
+  },
   plugins: [
     react(),
     chunkSplitPlugin({
@@ -13,10 +23,22 @@ export default defineConfig({
         "react-vendor": ["react", "react-dom"]
       }
     }),
-    legacy({
-      // 设置目标浏览器，browserslist 配置语法
-      targets: ["ie >= 11"]
-    })],
+    createStyleImportPlugin({
+      resolves: [
+        AntdResolve(),
+      ],
+      libs: [
+        // If you don’t have the resolve you need, you can write it directly in the lib, or you can provide us with PR
+        {
+          libraryName: 'antd',
+          esModule: true,
+          resolveStyle: (name) => {
+            return `antd/es/${name}/style/index`;
+          },
+        },
+      ],
+    }),
+  ],
   server: {
     port: 8080
   }
