@@ -1,6 +1,7 @@
 import { Table } from "antd";
 import "./index.css";
-import { useVirtualTable } from './useVirtualTable'
+import { useVirtualTable } from './useVirtualTable';
+import { RouterBack } from "@src/components/router-back";
 
 const columns = [
   {
@@ -64,6 +65,7 @@ const VirtualTable = () => {
           bordered
         />
       </div>
+      <RouterBack />
     </div>
   );
 };

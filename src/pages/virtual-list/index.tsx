@@ -4,6 +4,7 @@ import {
   useState
 } from "react";
 import "./index.css";
+import { RouterBack } from '@src/components/router-back'
 
 function VirtualList() {
   /* 保存数据源 */
@@ -54,6 +55,7 @@ function VirtualList() {
   console.log('渲染区间', position)
 
   return <div className="list_box" ref={box as any} >
+    <RouterBack className="top-0 fixed flex justify-center items-center right-20 top-2 bg-blue-600 h-10" />
     <div className="scroll_box" style={{ height: height + 'px' }} onScroll={handleScroll} ref={scroll as any}  >
       <div className="scroll_hold" style={{ height: `${dataList.length * itemHeight}px` }} />
       <div className="context" ref={context}>
