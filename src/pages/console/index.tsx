@@ -1,5 +1,5 @@
 import React from 'react';
-import { flatten } from '@src/utils/flatten';
+import { flatten } from '@utils/flatten';
 
 /**
  * 手写函数打印
