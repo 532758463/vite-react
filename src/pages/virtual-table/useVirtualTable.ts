@@ -3,9 +3,8 @@ import React, {
   useEffect,
   useRef,
   useCallback,
-  useMemo,
-} from "react";
-
+  useMemo
+} from 'react';
 
 interface Options {
   /* 容器高度 */
@@ -22,10 +21,13 @@ const defaultOption: Options = {
   height: 500 /* 容器高度 */,
   bufferCount: 20 /* 缓冲区个数 */,
   itemHeight: 60 /* 每一个item高度 */,
-  renderCount: 10 /* 渲染区个数 */,
+  renderCount: 10 /* 渲染区个数 */
 };
 
-export const useVirtualTable = <T = any>(dataSource: T[], options?: Options) => {
+export const useVirtualTable = <T = any>(
+  dataSource: T[],
+  options?: Options
+) => {
   const scrollInfo = useRef<Options>(defaultOption);
   const [position, setPosition] = useState([0, 0]);
   const tableWrapper = React.useRef<any>(null);
@@ -38,7 +40,7 @@ export const useVirtualTable = <T = any>(dataSource: T[], options?: Options) => 
     const renderCount = Math.ceil(height / itemHeight) + bufferCount;
     scrollInfo.current = { renderCount, height, bufferCount, itemHeight };
     setPosition([0, renderCount]);
-  }, []);
+  }, [options]);
 
   // useEffect(() => {
   //   // 滚动条滚动时触发
@@ -80,6 +82,6 @@ export const useVirtualTable = <T = any>(dataSource: T[], options?: Options) => 
     tableWrapper,
     scrollChange,
     renderList,
-    holdHeight,
+    holdHeight
   };
 };
