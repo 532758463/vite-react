@@ -1,9 +1,10 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import VirtualList from './pages/virtual-list';
-import TableList from './pages/virtual-table';
+import VirtualList from '@pages/virtual-list';
+import TableList from '@pages/virtual-table';
 import type { RouteProps } from 'react-router-dom';
-import Navigation from './pages/index';
-import Console from './pages/console';
+import Navigation from '@pages/index';
+import Console from '@pages/console';
+import IConList from '@pages/icon-list';
 interface IRoute extends RouteProps {
   path: string;
   name: string;
@@ -24,6 +25,11 @@ export const routes: IRoute[] = [
     path: '/console',
     element: <Console />,
     name: '输出结果'
+  },
+  {
+    path: '/iconList',
+    element: <IConList />,
+    name: '图标组件'
   }
 ];
 

@@ -36,7 +36,10 @@
       "@hooks/*": [
         "src/hooks/*"
       ]
-    }
+    },
+    "types": [
+      "vite-plugin-svgr/client"
+    ]
   },
   "include": [
     "src"
