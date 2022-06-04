@@ -11,3 +11,5 @@ export const ConsoleFn: React.FC = () => {
 
   return <div>{res}</div>;
 };
+
+export default ConsoleFn;

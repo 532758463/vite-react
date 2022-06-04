@@ -3,7 +3,7 @@ import VirtualList from './pages/virtual-list';
 import TableList from './pages/virtual-table';
 import type { RouteProps } from 'react-router-dom';
 import Navigation from './pages/index';
-
+import Console from './pages/console';
 interface IRoute extends RouteProps {
   path: string;
   name: string;
@@ -19,6 +19,11 @@ export const routes: IRoute[] = [
     path: '/table',
     element: <TableList />,
     name: '表格'
+  },
+  {
+    path: '/console',
+    element: <Console />,
+    name: '输出结果'
   }
 ];
 
