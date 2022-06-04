@@ -46,3 +46,20 @@ export function flatten3(arr: any[], num: number = Infinity): any[] {
   }
   return arr;
 }
+
+/**
+ * 任意层级数组扁平化
+ */
+export function flatten4(arr: any[]): any[] {
+  let res: any[] = [];
+  if (Array.isArray(arr)) {
+    arr.forEach((item) => {
+      if (Array.isArray(item)) {
+        res = res.concat(flatten4(item));
+      } else {
+        res = res.concat(item);
+      }
+    });
+  }
+  return res;
+}
