@@ -54,7 +54,10 @@
     "vite-plugin-chunk-split": "^0.2.2",
     "vite-plugin-style-import": "^2.0.0",
     "vite-plugin-svg-icons": "^2.0.1",
-    "vite-plugin-svgr": "^1.1.0",
+    "vite-plugin-svgr": "^2.1.0",
     "vite-plugin-imagemin": "^0.6.1"
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
   }
 }
