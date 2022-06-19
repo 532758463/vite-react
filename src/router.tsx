@@ -5,6 +5,7 @@ import type { RouteProps } from 'react-router-dom';
 import Navigation from '@pages/index';
 import Console from '@pages/console';
 import IConList from '@pages/icon-list';
+import Grid from '@pages/grid';
 interface IRoute extends RouteProps {
   path: string;
   name: string;
@@ -30,6 +31,11 @@ export const routes: IRoute[] = [
     path: '/iconList',
     element: <IConList />,
     name: '图标组件'
+  },
+  {
+    path: '/grid',
+    element: <Grid />,
+    name: 'Grid布局'
   }
 ];
 
