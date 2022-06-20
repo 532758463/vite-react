@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const CssBox = () => {
   return (
     <div className="flex justify-around">

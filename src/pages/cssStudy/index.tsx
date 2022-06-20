@@ -1,5 +1,5 @@
 import { Tabs } from 'antd';
-import Box from './box';
+import Box from './Box';
 
 const { TabPane } = Tabs;
 export const CssSTudy = () => {
