@@ -6,6 +6,7 @@ import Navigation from '@pages/index';
 import Console from '@pages/console';
 import IConList from '@pages/icon-list';
 import Grid from '@pages/grid';
+import CssBox from '@pages/cssStudy';
 interface IRoute extends RouteProps {
   path: string;
   name: string;
@@ -36,6 +37,11 @@ export const routes: IRoute[] = [
     path: '/grid',
     element: <Grid />,
     name: 'Grid布局'
+  },
+  {
+    path: '/css',
+    element: <CssBox />,
+    name: 'css学习'
   }
 ];
 
