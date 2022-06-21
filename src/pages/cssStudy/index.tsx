@@ -1,5 +1,6 @@
 import { Tabs } from 'antd';
 import Box from './Box';
+import BFC from './BFC';
 
 const { TabPane } = Tabs;
 export const CssSTudy = () => {
@@ -8,6 +9,11 @@ export const CssSTudy = () => {
       name: 'css盒模型',
       key: 'box',
       component: <Box />
+    },
+    {
+      name: 'BFC',
+      key: 'bfc',
+      component: <BFC />
     }
   ];
   return (
