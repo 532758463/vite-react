@@ -19,7 +19,7 @@ export const IntersectionObserverBox = () => {
       entry.target; // 被观察者
       if (entry.isIntersecting) {
         const target = document.querySelector('.target');
-        target?.setAttribute('style', 'background:yellow;');
+        target?.setAttribute('style', 'background:yellow;bottom:-100px;');
 
         observer.unobserve(entry.target);
       }
@@ -36,7 +36,12 @@ export const IntersectionObserverBox = () => {
 
   return (
     <div className="flex justify-center h-lg">
-      <div className="h-8 bg-red-300 target">1</div>
+      <div
+        style={{ bottom: '-100px' }}
+        className="absolute h-8 bg-red-300 target"
+      >
+        1
+      </div>
     </div>
   );
 };
