@@ -26,3 +26,13 @@ useRef。
 闭包陷阱产生的原因就是 useEffect 的函数里引用了某个 state，形成了闭包，那不直接引用不就行了？
 
 useRef 是在 memorizedState 链表中放一个对象，current 保存某个值。
+
+
+
+## 总结
+
+解决 hooks 的闭包陷阱有两种方式：
+
+设置依赖的 state 到 deps 数组中并添加清理函数
+不直接引用 state，把 state 放到 useRef 创建的 ref 对象中再引用
+处理定时器的时候，为保证计时的准确，最好使用 useRef 的方式，其余情况两种都可以。
