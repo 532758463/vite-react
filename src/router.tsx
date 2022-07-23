@@ -8,6 +8,8 @@ import IConList from '@pages/icon-list';
 import Grid from '@pages/grid';
 import CssBox from '@pages/cssStudy';
 import JsStudy from '@pages/jsStudy';
+import ReactStudy from '@pages/react-study';
+
 interface IRoute extends RouteProps {
   path: string;
   name: string;
@@ -48,6 +50,11 @@ export const routes: IRoute[] = [
     path: '/js',
     element: <JsStudy />,
     name: 'js学习'
+  },
+  {
+    path: '/react',
+    element: <ReactStudy />,
+    name: 'react学习'
   }
 ];
 
