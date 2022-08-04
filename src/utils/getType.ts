@@ -18,7 +18,7 @@ export function getType1(x: any): string {
  * 获取详细的数据类型
  * 使用 Object.prototype.toString.call(x)
  */
-export function getType(x: any): string {
+export function getType(x: unknown): string {
   const originType = Object.prototype.toString.call(x);
   const spaceIndex = originType.indexOf(' ');
   const type = originType.slice(spaceIndex + 1, -1);
