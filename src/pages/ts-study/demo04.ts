@@ -8,8 +8,6 @@
  直到结束条件也就是所有的类型都处理完了，就完成了不确定数量的类型编程，达到循环的效果。
  */
 
-import Result, { ResultType } from 'antd/lib/result';
-
 //  DeepPromiseValueType
 type ttt = Promise<Promise<Promise<Record<string, any>>>>;
 type DeepPromiseValueType<P extends Promise<unknown>> = P extends Promise<
