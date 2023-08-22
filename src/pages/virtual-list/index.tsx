@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import './index.css';
 import { RouterBack } from '@src/components/router-back';
+import { Button } from 'antd';
+import { container } from '@components/Modal';
+import EbayModalDemo, { init } from '@components/ebay-modal';
 
 function VirtualList() {
   /* 保存数据源 */
@@ -51,9 +54,29 @@ function VirtualList() {
   const renderList = dataList.slice(start, end); /* 渲染区间 */
   console.log('渲染区间', position);
 
+  useEffect(() => {
+    console.log('112121');
+    window.addEventListener('load', () => {
+      console.log('LOADS');
+      init();
+    });
+  }, []);
+
   return (
     <div className="list_box" ref={box as any}>
       <RouterBack className="fixed flex items-center justify-center h-10 bg-blue-600 top-2 right-20" />
+      <EbayModalDemo />
+      <Button
+        onClick={() => {
+          console.log(container);
+          container.current?.setModalProps({
+            children: <div onClick={() => container.current?.show()}>弹窗</div>
+          });
+          container.current?.show();
+        }}
+      >
+        点击弹窗
+      </Button>
       <div
         className="scroll_box"
         style={{ height: height + 'px' }}
