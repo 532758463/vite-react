@@ -1,6 +1,7 @@
 import { Modal, Button, Drawer, Space } from 'antd';
 import NiceModal, { useModal } from '@src/lib';
 import { useEffect } from 'react';
+// const modals = ['my-antd-modal', 'my-antd-modal2', 'modal3'];
 export const init = () => {
   const MyAntdModal = NiceModal.create(
     ({ name, children }: { name: string; children?: JSX.Element }) => {
@@ -36,7 +37,8 @@ export const init = () => {
   NiceModal.register('my-antd-modal', MyAntdModal);
   NiceModal.register('my-antd-modal2', MyAntdModal);
   NiceModal.register('modal3', MyCustomModal);
-}
+};
+
 const MyAntdDrawer = NiceModal.create(({ name }: { name: string }) => {
   const modal = useModal();
   return (
@@ -57,7 +59,7 @@ export default function AntdSample() {
   useEffect(() => {
     Object.assign(window, { NiceModal });
     return () => {
-      delete window?.NiceModal;
+      delete (window as any)?.NiceModal;
     };
   }, [NiceModal]);
   return (

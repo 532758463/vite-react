@@ -56,10 +56,7 @@ function VirtualList() {
 
   useEffect(() => {
     console.log('112121');
-    window.addEventListener('load', () => {
-      console.log('LOADS');
-      init();
-    });
+    init();
   }, []);
 
   return (

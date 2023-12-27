@@ -9,6 +9,8 @@ import Grid from '@pages/grid';
 import CssBox from '@pages/cssStudy';
 import JsStudy from '@pages/jsStudy';
 import ReactStudy from '@pages/react-study';
+import ContextPage from '@pages/context-rerender';
+import ContextPage2 from '@pages/context-rerender2';
 
 interface IRoute extends RouteProps {
   path: string;
@@ -55,6 +57,16 @@ export const routes: IRoute[] = [
     path: '/react',
     element: <ReactStudy />,
     name: 'react学习'
+  },
+  {
+    path: '/context',
+    element: <ContextPage />,
+    name: 'ContextPage'
+  },
+  {
+    path: '/context2',
+    element: <ContextPage2 />,
+    name: 'ContextPage2'
   }
 ];
 
