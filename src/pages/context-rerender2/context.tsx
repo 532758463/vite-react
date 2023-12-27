@@ -8,8 +8,17 @@ import React, {
 
 const StoreContext = createContext(null);
 
-const useStoreData = () => {
-  const store = useRef({ first: '', last: '' });
+interface InitState {
+  [key: string]: any;
+}
+
+const useStoreData = (
+  initState: InitState = {
+    first: '',
+    last: ''
+  }
+) => {
+  const store = useRef(initState);
   const get = useCallback(() => store.current, []);
   const subscribers = useRef(new Set());
   const set = useCallback((value) => {
@@ -25,25 +34,30 @@ const useStoreData = () => {
   return { get, set, subscribe };
 };
 
-const useStore = (selector?: any) => {
+const useStore = (selector) => {
   const store = useContext(StoreContext);
   if (!store) {
     throw 'Error';
   }
 
   const state = useSyncExternalStore(store.subscribe, () =>
-    selector ? selector(store.get()) : store.get()
+    selector(store.get())
   );
-  return [state, store.set];
+  const dispatch = ({ type, payload }: { type: string; payload: any }) => {
+    store.set({
+      [type]: payload
+    }); // 这里可以设置你需要的值
+  };
+  return [state, dispatch, store.set];
 };
 
 const TextInput = ({ value }) => {
-  const [fieldValue, setStore] = useStore();
+  const [fieldValue, dispatch, setStore] = useStore((store) => store[value]);
   return (
     <div className="field">
       {value}:{' '}
       <input
-        value={fieldValue[value]}
+        value={fieldValue}
         onChange={(e) => setStore({ [value]: e.target.value })}
       />
     </div>
